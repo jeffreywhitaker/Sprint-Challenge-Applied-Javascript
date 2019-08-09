@@ -17,11 +17,34 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+let articleContainer = document.querySelector('.cards-container');
+
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then ( (response) => {
         console.log(response);
+        response.data.articles.bootstrap.forEach ( (article) => {
+            let newFinishedArticle = cardMaker(article);
+            articleContainer.appendChild(newFinishedArticle);
+        })
+        response.data.articles.bootstrap.forEach ( (article) => {
+            let newFinishedArticle = cardMaker(article);
+            articleContainer.appendChild(newFinishedArticle);
+        })
+        response.data.articles.bootstrap.forEach ( (article) => {
+            let newFinishedArticle = cardMaker(article);
+            articleContainer.appendChild(newFinishedArticle);
+        })
+        response.data.articles.bootstrap.forEach ( (article) => {
+            let newFinishedArticle = cardMaker(article);
+            articleContainer.appendChild(newFinishedArticle);
+        })
+        response.data.articles.bootstrap.forEach ( (article) => {
+            let newFinishedArticle = cardMaker(article);
+            articleContainer.appendChild(newFinishedArticle);
+        })
     });
+    
 //end
 
 function cardMaker (article) {
@@ -38,7 +61,9 @@ function cardMaker (article) {
 
     let cardImgContainerDiv = document.createElement('div');
     cardImgContainerDiv.classList.add('img-container');
-    cardImgContainerDiv.src = article.authorPhoto;
+
+    let cardImg = document.createElement('img');
+    cardImg.src = article.authorPhoto;
 
     let cardAuthorSpan = document.createElement('span');
     cardAuthorSpan.textContent = `By ${article.authorName}`;
@@ -47,6 +72,7 @@ function cardMaker (article) {
     newCard.appendChild(cardHeadline);
     newCard.appendChild(cardAuthorDiv);
     cardAuthorDiv.appendChild(cardImgContainerDiv);
+    cardImgContainerDiv.appendChild(cardImg);
     cardAuthorDiv.appendChild(cardAuthorSpan);
 
     //return finished card
