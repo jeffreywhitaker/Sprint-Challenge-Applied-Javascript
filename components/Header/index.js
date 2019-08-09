@@ -10,7 +10,6 @@
 // And add it to the DOM in the .headerContainer component
 
 let headerContainer = document.querySelector('.header-container');
-console.log(headerContainer);
 
 function Header() {
     // create elements, add class and text content
